@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Book {
+public class Book implements SmartSearchResult {
 
     private String title;
     private String publisher;

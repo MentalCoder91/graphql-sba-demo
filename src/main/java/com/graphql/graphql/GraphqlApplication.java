@@ -11,8 +11,8 @@ public class GraphqlApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GraphqlApplication.class, args);
 
-		FakeBookDataSource.getBookList().forEach(System.out::println);
-		FakeMobileAppDataSource.MOBILE_APP_LIST.forEach(System.out::println);
+		//FakeBookDataSource.getBookList().forEach(System.out::println);
+		//FakeMobileAppDataSource.MOBILE_APP_LIST.forEach(System.out::println);
 	}
 
 }

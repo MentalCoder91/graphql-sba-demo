@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Builder
 @AllArgsConstructor@NoArgsConstructor
-public class Hello {
+public class Hello implements SmartSearchResult {
 
     private String text;
 

@@ -1,8 +1,9 @@
 scalar  Url
 scalar Date
 scalar NonNegativeInt
+scalar DateTime
 
-
+union SmartSearchResult = Hello | Book
 
 type Query{
 
@@ -11,7 +12,40 @@ type Query{
     books(author: String): [Book]
     booksByReleased(releasedInput: ReleaseHistoryInput!): [Book]
     mobileApps(mobileAppFilter:MobileAppFilter): [MobileApp]
+    pets(petFilter:PetFilter): [Pet]
+    smartSearch(keyword: String): [SmartSearchResult]
+    additionalOnRequest: String
+    #Problemiz
+    me: User!
+    problemLatestList:[Problem!]
+    itemSearch(filter: SearchItemFilter): [SearchableItem]
+    problemDetail(id:ID!): Problem!
+
+
 }
 
+type Mutation{
+    addHello(helloInput: HelloInput): Int
+    replaceHelloText(helloInput: HelloInput,textReplaced: String): [Hello]
+    #replaceHelloText(number: Int!,newText: String!): [Hello] using scalar input types
+    deleteHello(number: Int!): Int
+
+    #Problemiz
+    userCreate(user:UserCreateInput!) : UserResponse!
+    userLogin(user:UserLoginInput!) : UserResponse!
+    userActivation(user:UserActivationInput!): UserActivationResponse!
+    problemCreate(problem:ProblemCreateInput!):ProblemResponse!
+    solutionCreate(solution:SolutionCreateInput!): SolutionResponse!
+    solutionVote(vote:SolutionVoteInput!): SolutionResponse!
+
+
+}
+
+type Subscription{
+
+    randomStock:Stock
+    problemAdded:Problem!
+    solutionVoteChanged(solutionId: ID!): Solution!
+}
 
 
